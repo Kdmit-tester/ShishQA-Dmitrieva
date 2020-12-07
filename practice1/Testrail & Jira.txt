@@ -1,0 +1,25 @@
+
+
+---TEST RAIL-----
+
+Завершенный тестовый прогон в Тестрейле 24 кейса HardLoad
+http://89.223.126.182/testrail/index.php?/runs/view/9&group_by=cases:section_id&group_order=asc
+
+
+---JIRA------
+
+Загруженные дефекты в Jira 5 шт.
+HAR 32
+http://89.223.126.182:8080/browse/HAR-32
+
+HAR 33
+http://89.223.126.182:8080/browse/HAR-33
+
+HAR 34
+http://89.223.126.182:8080/browse/HAR-34
+
+HAR 35
+http://89.223.126.182:8080/browse/HAR-35
+
+HAR 36
+http://89.223.126.182:8080/browse/HAR-36
