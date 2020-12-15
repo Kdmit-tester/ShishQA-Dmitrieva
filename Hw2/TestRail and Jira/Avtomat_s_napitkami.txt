@@ -1,0 +1,15 @@
+==========================================
+
+TestRail
+32 cases - test run complete
+http://89.223.126.182/testrail/index.php?/runs/view/13&group_by=cases:section_id&group_order=asc
+
+=========================================
+
+Jira
+11 bugs (AVT 1 - AVT 11)
+
+
+http://89.223.126.182:8080/projects/AVT/issues/AVT-1?filter=allopenissues
+
+==========================================
