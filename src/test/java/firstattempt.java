@@ -6,11 +6,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class firstattempt {
     public static WebDriver driver;
+
+    public static String screanshotpath = "C:\\KDmit\\image.jpg";
 
     @BeforeClass
     public static void setup() {
@@ -32,6 +42,36 @@ public class firstattempt {
         String titleActual = driver.getTitle();
         String titleExpected = "Unlimint Payment Page";
         Assert.assertEquals("Title not matching", titleExpected, titleActual);
+    }
+
+    @Test
+    public void screanShoot() throws IOException, InterruptedException {
+        WebElement cardNumber = driver.findElement(By.id("input-card-number"));
+        cardNumber.sendKeys("4000000000000002");
+        WebElement cardHolder = driver.findElement(By.id("input-card-holder"));
+        cardHolder.sendKeys("Karina Dmitrieva");
+        WebElement selectMonth = driver.findElement(By.id("card-expires-month"));
+        Select selectM = new Select(selectMonth);
+        selectM.selectByVisibleText("06");
+        WebElement selectYear = driver.findElement(By.id("card-expires-year"));
+        Select selectY = new Select(selectYear);
+        selectY.selectByVisibleText("2038");
+        WebElement CVC = driver.findElement(By.id("input-card-cvc"));
+        CVC.sendKeys("000");
+        WebElement hintTgl = driver.findElement(By.id("cvc-hint-toggle"));
+        hintTgl.click();
+
+        WebElement bodyElm = driver.findElement(By.id("main-container"));
+
+        Screenshot screenshot = new AShot()
+                .shootingStrategy(ShootingStrategies.viewportPasting(1000))
+                .coordsProvider(new WebDriverCoordsProvider())
+                .takeScreenshot(driver,bodyElm);
+
+        File outputfile = new File(screanshotpath);
+        BufferedImage bufImg = screenshot.getImage();
+        ImageIO.write(bufImg, "jpg", outputfile);
+        Assert.assertTrue(new File(screanshotpath).exists());
     }
 
     @Test
