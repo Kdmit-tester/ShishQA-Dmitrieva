@@ -1,0 +1,7 @@
+
+EveryQA Testplan + Test Run
+https://app.everyqa.io/overview/project/caaed5a8-44c7-11eb-8623-d00d7cc42edb
+
+
+YouTrack
+http://89.223.126.182:8081/issues?q=project:%20CALCULATOR
